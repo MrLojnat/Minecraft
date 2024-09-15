@@ -50,12 +50,15 @@ public class Bossmod {
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
 
     // Creates a new food item with the id "bossmod:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(2f).build())));
+    public static final RegistryObject<Item> PAISSA_ITEM = ITEMS.register("paissa", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(2f).build())));
+    public static final RegistryObject<Item> CHUN_ITEM = ITEMS.register("chun", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(2f).build())));
 
     // Creates a creative tab with the id "bossmod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
-        output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("bosses", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> PAISSA_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
+        output.accept(PAISSA_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+        output.accept(CHUN_ITEM.get());
     }).build());
+
 
     public Bossmod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -89,7 +92,7 @@ public class Bossmod {
 
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        Config.items.forEach(item -> LOGGER.info("ITEM >> {}", item));
     }
 
     // Add the example block item to the building blocks tab
