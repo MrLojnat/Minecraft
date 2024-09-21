@@ -13,7 +13,7 @@ import net.minecraft.world.entity.Entity;
 public class MoodengModel<T extends Entity> extends HierarchicalModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("bossmod", "moodeng"), "main");
-    private final ModelPart moodeng;
+    private final ModelPart mooDeng;
     private final ModelPart body;
     private final ModelPart torso;
     private final ModelPart chest;
@@ -25,10 +25,10 @@ public class MoodengModel<T extends Entity> extends HierarchicalModel<T> {
     private final ModelPart r_leg;
 
     public MoodengModel(ModelPart root) {
-        this.moodeng = root.getChild("moodeng");
-        this.body = moodeng.getChild("body");
+        this.mooDeng = root.getChild("moo_deng");
+        this.body = mooDeng.getChild("body");
 
-        this.torso = body.getChild("torso");
+        this.torso = mooDeng.getChild("body").getChild("torso");
         this.chest = torso.getChild("chest");
         this.head = torso.getChild("head");
         this.l_arm = torso.getChild("l_arm");
@@ -43,7 +43,7 @@ public class MoodengModel<T extends Entity> extends HierarchicalModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition moo_deng = partdefinition.addOrReplaceChild("moodeng", CubeListBuilder.create(), PartPose.offset(0.5F, 12.5F, -4.0F));
+        PartDefinition moo_deng = partdefinition.addOrReplaceChild("moo_deng", CubeListBuilder.create(), PartPose.offset(0.5F, 12.5F, -4.0F));
 
         PartDefinition body = moo_deng.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -83,11 +83,11 @@ public class MoodengModel<T extends Entity> extends HierarchicalModel<T> {
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        moodeng.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        mooDeng.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 
     @Override
     public ModelPart root() {
-        return moodeng;
+        return mooDeng;
     }
 }
