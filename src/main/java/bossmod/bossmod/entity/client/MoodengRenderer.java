@@ -16,7 +16,7 @@ public class MoodengRenderer extends MobRenderer<MoodengEntity, MoodengModel<Moo
 
     @Override
     public ResourceLocation getTextureLocation(MoodengEntity pEntity) {
-        return new ResourceLocation(Bossmod.MODID, "textures/entity/Moo_deng.png");
+        return new ResourceLocation(Bossmod.MODID, "textures/entity/moodeng.png");
     }
 
     @Override

@@ -10,8 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModEntities {
-    public static final DeferredRegister<EntityType<?>> ENTITIY_TYPES =
-            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Bossmod.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITIY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Bossmod.MODID);
 
     public static final RegistryObject<EntityType<MoodengEntity>> MOODENG =
             ENTITIY_TYPES.register("moodeng", () -> EntityType.Builder.of(MoodengEntity::new, MobCategory.CREATURE)

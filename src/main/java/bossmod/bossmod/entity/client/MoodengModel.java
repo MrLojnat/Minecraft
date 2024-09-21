@@ -16,36 +16,34 @@ public class MoodengModel<T extends Entity> extends HierarchicalModel<T> {
     private final ModelPart mooDeng;
     private final ModelPart body;
     private final ModelPart torso;
-    private final ModelPart chest;
     private final ModelPart head;
-    private final ModelPart l_arm;
-    private final ModelPart r_arm;
-    private final ModelPart body_lower;
-    private final ModelPart l_leg;
-    private final ModelPart r_leg;
+    private final ModelPart lArm;
+    private final ModelPart rArm;
+    private final ModelPart bodyLower;
+    private final ModelPart lLeg;
+    private final ModelPart rLeg;
 
     public MoodengModel(ModelPart root) {
         this.mooDeng = root.getChild("moo_deng");
         this.body = mooDeng.getChild("body");
 
-        this.torso = mooDeng.getChild("body").getChild("torso");
-        this.chest = torso.getChild("chest");
+        this.torso = body.getChild("torso");
         this.head = torso.getChild("head");
-        this.l_arm = torso.getChild("l_arm");
-        this.r_arm = torso.getChild("r_arm");
+        this.lArm = torso.getChild("l_arm");
+        this.rArm = torso.getChild("r_arm");
 
-        this.body_lower = body.getChild("body_lower");
-        this.l_leg = body_lower.getChild("l_leg");
-        this.r_leg = body_lower.getChild("r_leg");
+        this.bodyLower = body.getChild("body_lower");
+        this.lLeg = bodyLower.getChild("l_leg");
+        this.rLeg = bodyLower.getChild("r_leg");
     }
 
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition moo_deng = partdefinition.addOrReplaceChild("moo_deng", CubeListBuilder.create(), PartPose.offset(0.5F, 12.5F, -4.0F));
+        PartDefinition mooDeng = partdefinition.addOrReplaceChild("moo_deng", CubeListBuilder.create(), PartPose.offset(0.5F, 12.5F, -4.0F));
 
-        PartDefinition body = moo_deng.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition body = mooDeng.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
         PartDefinition torso = body.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(-9, 1).addBox(-3.5F, -12.5F, -7.0F, 7.0F, 18.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -24.0F, 4.0F));
         PartDefinition head = torso.addOrReplaceChild("head", CubeListBuilder.create().texOffs(-14, 1).addBox(-7.0F, 18.0F, -7.0F, 14.0F, 14.0F, 14.0F, new CubeDeformation(0.0F))

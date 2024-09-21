@@ -2,10 +2,7 @@ package bossmod.bossmod.event;
 
 import bossmod.bossmod.Bossmod;
 import bossmod.bossmod.entity.ModEntities;
-import bossmod.bossmod.entity.client.ModModelLayers;
-import bossmod.bossmod.entity.client.MoodengModel;
 import bossmod.bossmod.entity.custom.MoodengEntity;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

@@ -1,0 +1,20 @@
+{
+  "red_sun_in_the_sky": {
+    "subtitles":"sounds.bossmod.red_sun_in_the_sky",
+    "sounds" : [
+      "bossmod:red_sun_in_the_sky"
+    ]
+  },
+  "gong" : {
+    "subtitles":"sounds.bossmod.gong",
+    "sounds" : [
+      "bossmod:gong"
+    ]
+  },
+  "dun_dun_dun" : {
+    "subtitles" : "sounds.bossmod.dun_dun_dun",
+    "sounds" : [
+      "bossmod:dun_dun_dun"
+    ]
+  }
+}
